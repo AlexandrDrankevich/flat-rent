@@ -11,10 +11,10 @@ public class SearchPage extends AbstractPage {
     private WebElement dropDownSelectDistrict;
     @FindBy(xpath = "//*[text()='Центральный район']")
     private WebElement district;
-    @FindBy(css="[class='btn btn-primary btn-multi select-modal-filter']")
+    @FindBy(css = "[class='btn btn-primary btn-multi select-modal-filter']")
     private WebElement buttonSelect;
-    @FindBy(css="[class='ext-filter_close-btn']")
-    private  WebElement buttonCloseParameters;
+    @FindBy(css = "[class='ext-filter_close-btn']")
+    private WebElement buttonCloseParameters;
 
 
     public SearchPage clickButtonParameters() {
@@ -29,11 +29,13 @@ public class SearchPage extends AbstractPage {
         action.moveToElement(district).click().build().perform();
         return this;
     }
-    public SearchPage clickButtonSelect(){
+
+    public SearchPage clickButtonSelect() {
         buttonSelect.click();
         return this;
     }
-    public ResultPage clickButtonCloseParameters(){
+
+    public ResultPage clickButtonCloseParameters() {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {

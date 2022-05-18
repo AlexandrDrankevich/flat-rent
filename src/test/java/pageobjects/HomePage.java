@@ -10,39 +10,40 @@ public class HomePage extends AbstractPage {
     private WebElement buttonCookieApproval;
     @FindBy(css = "#select2-operation-container")
     private WebElement dropDownOperation;
-    @FindBy(css ="[id*='rent']")
+    @FindBy(css = "[id*='rent']")
     private WebElement operationRent;
     @FindBy(css = "#rooms")
     private WebElement dropDownRooms;
-    private String patternNumberOfRoomsLocator="span[data-val='%s']";
+    private String patternNumberOfRoomsLocator = "span[data-val='%s']";
     @FindBy(css = "button[type='submit']")
     private WebElement buttonSearch;
 
-
     public HomePage openPage() {
         driver.get(BASE_URL);
-       giveCookieApproval();
+        giveCookieApproval();
         return this;
     }
-    public void giveCookieApproval(){
+
+    public void giveCookieApproval() {
         buttonCookieApproval.click();
     }
-    public HomePage chooseOperationRent(){
+
+    public HomePage chooseOperationRent() {
         dropDownOperation.click();
         waitForVisibilityOfElement(operationRent).click();
-       return this;
+        return this;
     }
-    public HomePage chooseNumberOfRooms(String number){
+
+    public HomePage chooseNumberOfRooms(String number) {
         dropDownRooms.click();
 
         waitForVisibilityOfElement(driver.findElement(By
-                .cssSelector(String.format(patternNumberOfRoomsLocator,number)))).click();
+                .cssSelector(String.format(patternNumberOfRoomsLocator, number)))).click();
         return this;
     }
-    public SearchPage clickButtonSearch(){
+
+    public SearchPage clickButtonSearch() {
         buttonSearch.click();
         return new SearchPage();
     }
-
-
 }

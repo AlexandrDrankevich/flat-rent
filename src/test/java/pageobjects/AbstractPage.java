@@ -20,7 +20,7 @@ public class AbstractPage {
 
     protected AbstractPage() {
         driver = DriverSingleton.getDriver();
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     protected WebElement waitForElementToBeClickable(WebElement webElement) {
@@ -32,9 +32,10 @@ public class AbstractPage {
         return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions
                 .visibilityOf(webElement));
     }
-    protected List<WebElement> waitForPresenceOfAllElementsLocatedBy(String locator){
-    return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
-            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(locator)));
+
+    protected List<WebElement> waitForPresenceOfAllElementsLocatedBy(String locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(locator)));
     }
 }
 

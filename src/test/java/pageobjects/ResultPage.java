@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class ResultPage extends AbstractPage {
@@ -15,18 +14,21 @@ public class ResultPage extends AbstractPage {
     @FindBy(css = "div[class*='row items padding-fix mb-5']")
     private List<WebElement> searchResultCard;
 
-
     public List<String> createAddressPriceList() {
-              List<String> addressPriceList = searchResultCard.stream()
+        List<String> addressPriceList = searchResultCard.stream()
                 .map(s -> s.findElement(By.cssSelector(flatAddressLocator))
                         .getText() + " - " + s.findElement(By.cssSelector(flatPriceLocator)).getText() + "\n")
                 .collect(Collectors.toList());
         logger.info(addressPriceList);
         return addressPriceList;
     }
-    public int findSmallestPrice(){
-        int asInt = driver.findElements(By.cssSelector(flatPriceLocator)).stream().map(s -> s.getText().replaceAll("[а-я\\s]", "")).mapToInt(s -> Integer.parseInt(s)).min().getAsInt();
-        logger.info(asInt);
-        return asInt;
+
+    public String findSmallestPrice() {
+        int minPrise = driver.findElements(By.cssSelector(flatPriceLocator))
+                .stream().map(s -> s.getText().replaceAll("[^0-9]", ""))
+                .mapToInt(s -> Integer.parseInt(s)).min().getAsInt();
+        String smallestPrice = "Smallest Price - " + minPrise + " р./мес.";
+        logger.info(smallestPrice);
+        return smallestPrice;
     }
 }
