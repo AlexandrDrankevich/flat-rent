@@ -8,8 +8,7 @@ public class DomovitaTest extends AbstractTest {
     @Test
     public void testMinFlatRent() {
 
-        ResultPage resultPage = new HomePage()
-                .openPage()
+        ResultPage resultPage = new HomePage().openPage()
                 .chooseOperationRent()
                 .chooseNumberOfRooms("1")
                 .clickButtonSearch()
