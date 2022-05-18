@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends AbstractPage {
     private final String BASE_URL = "https://domovita.by/";
-    @FindBy(css = "div#accent-cookie-consent-button")
+    @FindBy(css = "button#accent-cookie-consent-button")
     private WebElement buttonCookieApproval;
     @FindBy(css = "#select2-operation-container")
     private WebElement dropDownOperation;
@@ -21,7 +21,7 @@ public class HomePage extends AbstractPage {
 
     public HomePage openPage() {
         driver.get(BASE_URL);
-      //  giveCookieApproval();
+       giveCookieApproval();
         return this;
     }
     public void giveCookieApproval(){

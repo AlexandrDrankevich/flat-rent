@@ -8,6 +8,6 @@ public class DomovitaTest extends AbstractTest {
     public void testMinFlatRent() {
 
         new HomePage().openPage().chooseOperationRent().chooseNumberOfRooms("1").clickButtonSearch()
-                .clickButtonParameters().chooseDistrict();
+                .clickButtonParameters().chooseDistrict().clickButtonSelect().clickButtonCloseParameters().createAddressPriceList();
     }
 }
