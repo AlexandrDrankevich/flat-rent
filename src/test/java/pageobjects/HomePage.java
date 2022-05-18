@@ -43,6 +43,11 @@ public class HomePage extends AbstractPage {
     }
 
     public SearchPage clickButtonSearch() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         buttonSearch.click();
         return new SearchPage();
     }
