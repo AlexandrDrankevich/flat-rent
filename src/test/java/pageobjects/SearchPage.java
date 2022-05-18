@@ -25,7 +25,7 @@ public class SearchPage extends AbstractPage {
     }
 
     public SearchPage chooseDistrict() {
-        dropDownSelectDistrict.click();
+        waitForVisibilityOfElement(dropDownSelectDistrict).click();
         Actions action = new Actions(driver);
         action.pause(Duration.ofSeconds(1)).moveToElement(district).click().build().perform();
         return this;
