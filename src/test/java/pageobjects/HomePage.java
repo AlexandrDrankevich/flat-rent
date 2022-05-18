@@ -1,6 +1,7 @@
 package pageobjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -43,7 +44,7 @@ public class HomePage extends AbstractPage {
     }
 
     public SearchPage clickButtonSearch() {
-        waitForElementToBeClickable(buttonSearch).click();
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click",buttonSearch);
         return new SearchPage();
     }
 }
