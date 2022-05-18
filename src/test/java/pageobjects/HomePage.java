@@ -44,7 +44,7 @@ public class HomePage extends AbstractPage {
     }
 
     public SearchPage clickButtonSearch() {
-        ((JavascriptExecutor)driver).executeScript("arguments[0].click",buttonSearch);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click();",buttonSearch);
         return new SearchPage();
     }
 }
